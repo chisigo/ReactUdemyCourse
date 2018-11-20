@@ -16,17 +16,28 @@ class Hello extends Component {
 
 class Text extends Component {
   render() {
-    const textoSegunBool = this.props.boolean ? "Cierto" : "Falso";
-    const mappedNumbers = this.props.arrayOfNumbers.map(n => n * 2);
+    const {
+      arrayOfNumbers,
+      boolean,
+      multply,
+      objectWithInfo,
+      number,
+      text,
+      title
+    } = this.props;
+
+    const textoSegunBool = boolean ? "Cierto" : "Falso";
+    const mappedNumbers = arrayOfNumbers.map(multply);
 
     return (
       <div>
-        <p>{this.props.text}</p>
-        <p>{this.props.number}</p>
+        <p>{text}</p>
+        <p>{number}</p>
         <p>{textoSegunBool}</p>
         <p>{mappedNumbers.join(", ")}</p>
-        <p>{this.props.objectWithInfo.key}</p>
-        <p>{this.props.objectWithInfo.key2}</p>
+        <p>{objectWithInfo.key}</p>
+        <p>{objectWithInfo.key2}</p>
+        {title}
       </div>
     );
   }
@@ -38,7 +49,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>Bienvenidos hijos del rock and roll</p>
+          <p>Bienvenidos hijos del rock and roll!!!</p>
 
           <Hello title="React rules!!" />
 
@@ -46,8 +57,10 @@ class App extends Component {
             arrayOfNumbers={[2, 3, 4]}
             boolean={true}
             objectWithInfo={{ key: "value", key2: "other value" }}
+            multply={number => number * 10}
             number={10}
             text="Text 2"
+            title={<h1>Title H1</h1>}
           />
         </header>
       </div>
