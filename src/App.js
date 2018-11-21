@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import PropTypes from "prop-types";
 
 class Box extends Component {
   render() {
@@ -12,6 +13,10 @@ class Box extends Component {
 }
 
 class Article extends Component {
+  static propTypes = {
+    author: PropTypes.string.isRequired
+  };
+
   render() {
     return (
       <section>
@@ -25,6 +30,10 @@ class Article extends Component {
     );
   }
 }
+
+// Article.propTypes = {
+//   author: PropTypes.string
+// };
 
 class App extends Component {
   render() {
