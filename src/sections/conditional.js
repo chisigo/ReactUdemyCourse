@@ -6,23 +6,28 @@ class LogginButton extends Component {
   }
 }
 
-class ComponenteB extends Component {
+class LogoutButton extends Component {
   render() {
-    return <p>Component B</p>;
+    return (
+      <div>
+        <p>Bienvenido, usuario</p>
+        <button>Cerrar sesión</button>
+      </div>
+    );
   }
 }
 
 export default class ConditionalSection extends Component {
   constructor() {
     super();
-    this.state = { mostrarA: true };
+    this.state = { isUserLogged: false };
   }
 
   render() {
     return (
       <div>
         <h4>Conditional Rendering</h4>
-        {this.state.mostrarA ? <LogginButton /> : <ComponenteB />}
+        {this.state.isUserLogged ? <LogoutButton /> : <LogginButton />}
       </div>
     );
   }
