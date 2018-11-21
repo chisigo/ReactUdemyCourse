@@ -1,0 +1,22 @@
+[
+  {
+    "id": "abc1",
+    "name": "Ateca",
+    "company": "Seat"
+  },
+  {
+    "id": "def2",
+    "name": "León",
+    "company": "Seat"
+  },
+  {
+    "id": "ghi3",
+    "name": "Polo",
+    "company": "VW"
+  },
+  {
+    "id": "jkl4",
+    "name": "Transporter",
+    "company": "VW"
+  }
+]
