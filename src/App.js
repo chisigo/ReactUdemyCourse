@@ -1,34 +1,32 @@
 import React, { Component } from "react";
 import "./App.css";
-import FetchExample from "./sections/fetch-example";
 
 class Button extends Component {
-  constructor(props) {
-    super(props);
-    this.borderBolor = "#09f";
-  }
-
   render() {
     return (
-      <button style={{ borderColor: this.borderBolor, display: "block" }}>
+      <button style={{ borderColor: this.props.borderColor, display: "block" }}>
         {this.props.label}
       </button>
     );
   }
 }
 
-class ButtonDanger extends Button {
-  constructor(props) {
-    super(props);
-    this.borderBolor = "red";
+Button.defaultProps = {
+  borderColor: "blue"
+};
+
+class ButtonDanger extends Component {
+  render() {
+    return <Button borderColor="red" label={this.props.label} />;
   }
 }
 
-class ButtonLegend extends Button {
+class ButtonLegend extends Component {
   render() {
     return (
       <div>
-        {super.render()} <small>{this.props.legend}</small>
+        <Button label={this.props.label} borderBolor={this.props.borderColor} />
+        <small>{this.props.legend}</small>
       </div>
     );
   }
@@ -40,11 +38,14 @@ class App extends Component {
       <div className="App">
         <h4>Composición vs herencia</h4>
 
-        <Button label="Click aquí" />
+        <Button label="Click aquí con composición" />
         <br />
-        <ButtonDanger label="Error" />
+        <ButtonDanger label="Error con composición" />
         <br />
-        <ButtonLegend label="Leyenda" legend="Explicación botón" />
+        <ButtonLegend
+          label="Leyenda con composición"
+          legend="Explicación botón con composición"
+        />
       </div>
     );
   }
